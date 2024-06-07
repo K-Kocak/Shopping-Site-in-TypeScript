@@ -1,31 +1,28 @@
-import { useState } from 'react'
-
-import '@css/App.scss';
+import React from 'react';
 
 import { router } from "@app/main";
 
-function App() {
-  const [count, setCount] = useState(0)
+import WithStore from '@backend/stores';
 
-  return (
-    <>
-      <div>
+import '@css/App.scss';
+
+function App() {
+    return (
+      <>
+        hi
         
-      </div>
-      
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+        <div className="card">  
+          <p>
+            
+          </p>
+        </div>
+        <p className="read-the-docs">
+          Click on the Vite and React logos to learn more
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </>
+    )
+  
+  
 }
 
 export default App
