@@ -2,27 +2,34 @@ import React from 'react';
 
 import { router } from "@app/main";
 
-import WithStore from '@backend/stores';
+import WithStore, { useValue } from '@backend/stores';
 
 import '@css/App.scss';
 
-function App() {
-    return (
-      <>
-        hi
-        
-        <div className="card">  
-          <p>
-            
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </>
-    )
-  
-  
+import MainView from '@ui/layout/MainView';
+
+interface IProps {
+
 }
 
-export default App
+class App extends React.Component<IProps, never> {
+  constructor(props: IProps){
+    super(props);
+  }
+
+  
+
+  render() {
+    return (
+      <div className={"App"}
+      onContextMenu={(e) => e.preventDefault()}>
+        <MainView />
+      </div>
+    )
+  }
+}
+
+
+
+// eslint-disable-next-line react-refresh/only-export-components
+export default WithStore(App, useValue);

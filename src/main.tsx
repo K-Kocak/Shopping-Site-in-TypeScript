@@ -4,19 +4,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './ui/App'
 
-/*ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)*/
-
 export const router = createBrowserRouter([
   { path: "*", element: <App />}
 ]);
 
 (async () => {
   render();
-})
+})();
 
 
 function render() {
