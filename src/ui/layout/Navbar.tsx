@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+import '@css/layout/Navbar.scss';
+
 import { contentRoutes } from '@app/constants';
 
 class Navbar extends React.Component<any>{
@@ -14,12 +16,32 @@ class Navbar extends React.Component<any>{
 
     render(){
         return(
-            <div className={"Navbar"}>
-                <Link to={contentRoutes.HOME}><div><p>Home</p></div></Link>
-                <div>div2</div>
-                <div>div3</div>
-                <div>div4</div>
-                <div>div5</div>
+            <div className={"Navbar"}>            
+                <Link to={contentRoutes.HOME} style={{textDecoration: "none"}}>
+                    <div className={"NavDiv"}>
+                        <p>Home</p>
+                    </div>
+                </Link>
+                <Link to={contentRoutes.LOGIN} style={{textDecoration: "none"}}>
+                    <div className={"NavDiv"}>
+                        <p>Login</p>
+                    </div>
+                </Link>
+                <Link to={contentRoutes.BROWSE} style={{textDecoration: "none"}}>
+                    <div className={"NavDiv"}>
+                        <p>Browse</p>
+                    </div>
+                </Link>
+                <Link to={contentRoutes.CART} style={{textDecoration: "none"}}>
+                    <div className={"NavDiv"}>
+                        <p>Cart</p>
+                    </div>
+                </Link>
+                <Link to={contentRoutes.CHECKOUT} style={{textDecoration: "none"}}>
+                    <div className={"NavDiv"}>
+                        <p>Checkout</p>
+                    </div>
+                </Link>
             </div>
         )
     }

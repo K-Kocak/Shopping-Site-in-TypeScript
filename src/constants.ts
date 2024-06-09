@@ -1,4 +1,7 @@
 export const contentRoutes = {
     HOME: "/",
-    PAGETWO: "/pagetwo",
+    LOGIN: "/login",
+    BROWSE: "/browse",
+    CART: "/cart",
+    CHECKOUT: "/checkout"
 }

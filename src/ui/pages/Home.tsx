@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import WithStore, { counterValue, useValue } from '@app/backend/stores';
+
 import { contentRoutes } from '@app/constants';
 
 interface IProps {
@@ -22,10 +23,15 @@ class Home extends React.Component<IProps, never> {
         
         return(
             <div>
-                <h1>Home TSX</h1>
-                <Link to={contentRoutes.PAGETWO}><button>Test</button></Link>
-                <button onClick={this.incrementValue}>{this.props.pStore.value}</button>
-                
+                <h3>
+                    Welcome to a simple shopping site!
+                </h3>
+                <p>Please login to browse</p>
+                <p>A few items and prices</p>
+                <button onClick={this.incrementValue}>
+                    {this.props.pStore.value}
+                </button>
+                <p>User will click Login</p>             
             </div>
         )
     }

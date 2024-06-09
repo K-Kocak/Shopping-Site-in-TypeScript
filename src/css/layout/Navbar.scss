@@ -1,0 +1,10 @@
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    .NavDiv {
+        font-size: 30px;
+        color: blue;
+    }
+}

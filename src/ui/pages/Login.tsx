@@ -18,11 +18,28 @@ class Home extends React.Component<IProps, never> {
         this.props.pStore.setValue(currentState - 1);
     }
 
+    submitForm = () => {
+        
+    }
+
     render() {
         return(
             <div>
-                <Link to={contentRoutes.HOME}>Hey</Link>
-                <h1>PAGETWO TSX</h1>
+                <div>
+                    <form onSubmit={this.submitForm}>
+                        <div>
+                            <span>Username: </span>
+                            <input type="text" placeholder='Enter your username...'>
+                            </input>
+                        </div>
+                        <div>
+                        <span>Password: </span>
+                            <input type="password" placeholder='Enter your username...'>
+                            </input>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
                 <button onClick={this.decrementValue}>{this.props.pStore.value}</button>
             </div>
         )

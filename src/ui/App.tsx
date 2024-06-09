@@ -7,6 +7,7 @@ import WithStore, { useValue } from '@backend/stores';
 import '@css/App.scss';
 
 import MainView from '@ui/layout/MainView';
+import Navbar from '@ui/layout/Navbar';
 
 interface IProps {
 
@@ -23,6 +24,7 @@ class App extends React.Component<IProps, never> {
     return (
       <div className={"App"}
       onContextMenu={(e) => e.preventDefault()}>
+        <Navbar />
         <MainView />
       </div>
     )

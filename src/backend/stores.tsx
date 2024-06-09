@@ -57,6 +57,30 @@ export const useValue = create<counterValue>()(
   )
 );
 
+export interface loginUser {
+  username: string;
+  password: string;
+
+  setUsername: (username: string) => void;
+  setPassword: (password: string) => void;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const userLogin = create<loginUser>()(
+  persist(
+    (set): loginUser => ({
+      username: "",
+      password: "",
+
+      setUsername: (username: string) => set({ username }),
+      setPassword: (password: string) => set({ password }),
+    }),
+    {
+      name: "user-login-state"
+    }
+  )
+)
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const WithStore = (Component: any, primary: any) => (props: any) => {
   const primaryStore = primary();
