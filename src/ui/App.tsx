@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { router } from "@app/main";
-
-import WithStore, { useValue } from '@backend/stores';
+import WithStore, { loginUser, userCartItems, userLogin } from '@backend/stores';
 
 import '@css/App.scss';
 
 import MainView from '@ui/layout/MainView';
 import Navbar from '@ui/layout/Navbar';
+import { CartItem } from '@backend/stores';
 
 interface IProps {
-
+  pStore: CartItem[],
+  sStore: loginUser
 }
 
 class App extends React.Component<IProps, never> {
@@ -34,4 +34,4 @@ class App extends React.Component<IProps, never> {
 
 
 // eslint-disable-next-line react-refresh/only-export-components
-export default WithStore(App, useValue);
+export default WithStore(App, userCartItems, userLogin);

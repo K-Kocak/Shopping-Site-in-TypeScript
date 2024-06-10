@@ -1,25 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { BaseSyntheticEvent } from 'react';
 
-import WithStore, { counterValue, useValue } from '@app/backend/stores';
 import { contentRoutes } from '@app/constants';
 
+import WithStore, { loginUser, userLogin } from '@app/backend/stores';
+
+import { router } from '@app/main';
+
 interface IProps {
-    pStore: counterValue
+    pStore: loginUser
 }
 
-class Home extends React.Component<IProps, never> {
+class Login extends React.Component<IProps, never> {
     constructor(props: IProps){
         super(props);
     }
 
-    decrementValue = () => {
+    /*decrementValue = () => {
         const currentState = this.props.pStore.value;
         this.props.pStore.setValue(currentState - 1);
-    }
+    }*/
+      /*  <button onClick={this.decrementValue}>{this.props.pStore.value}</button>*/
 
-    submitForm = () => {
-        
+    submitForm = (event: BaseSyntheticEvent) => {
+        event.preventDefault();
+        const formValues: string[] = [event.target[0].value, event.target[1].value];
+        this.props.pStore.setUsername(formValues[0]);
+        this.props.pStore.setPassword(formValues[1]);
+        router.navigate(contentRoutes.BROWSE);
     }
 
     render() {
@@ -36,15 +43,14 @@ class Home extends React.Component<IProps, never> {
                         <span>Password: </span>
                             <input type="password" placeholder='Enter your username...'>
                             </input>
-                        </div>
+                        </div>                   
                         <button type="submit">Login</button>
                     </form>
-                </div>
-                <button onClick={this.decrementValue}>{this.props.pStore.value}</button>
+                </div>            
             </div>
         )
     }
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export default WithStore(Home, useValue);
+export default WithStore(Login, userLogin);

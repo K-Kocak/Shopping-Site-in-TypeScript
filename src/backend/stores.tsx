@@ -1,7 +1,8 @@
-
-import { create, StoreApi } from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 //, createJSONStorage
+
+
 
 // Add item to store
 /*
@@ -10,6 +11,7 @@ export function append<T>(store: StoreApi<T[]>, item: T) {
 }
 
 // Prepend item to store
+
 export function prepend<T>(store: StoreApi<T[]>, item: T) {
   store.setState((state) => [item, ...state]);
 }
@@ -37,7 +39,7 @@ export function remove<T>(store: StoreApi<T[]>, item: T) {
 
   return <Component {...props} pStore={primaryStore} sStore={secondaryStore} tStore={tertiaryStore} />;
 }*/
-
+/*
 export interface counterValue {
   value: number;
 
@@ -55,7 +57,7 @@ export const useValue = create<counterValue>()(
       name: "test-state",
     }
   )
-);
+);*/
 
 export interface loginUser {
   username: string;
@@ -81,10 +83,35 @@ export const userLogin = create<loginUser>()(
   )
 )
 
+export type CartItem = {
+  name: string,
+  price: number
+}
+
+export type CartItems = {
+  CartItems: CartItem[];
+  addCartItem: (CartItems: CartItem[]) => void;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const userCartItems = create<CartItems>()(
+  persist(
+    (set): CartItems => ({
+      CartItems: [],
+      
+      addCartItem: (CartItems: CartItem[]) => set({ CartItems })
+    }),
+    {
+      name: "user-cart"
+    }
+  )
+);
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const WithStore = (Component: any, primary: any) => (props: any) => {
+export const WithStore = (Component: any, primary?: any, secondary?: any) => (props: any) => {
   const primaryStore = primary();
-  return <Component {...props} pStore={primaryStore}/>;
+  const secondaryStore = secondary ? secondary() : null;
+  return <Component {...props} pStore={primaryStore} sStore={secondaryStore}/>;
 }
 
 export default WithStore;

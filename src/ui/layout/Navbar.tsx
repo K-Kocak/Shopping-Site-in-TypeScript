@@ -10,10 +10,6 @@ class Navbar extends React.Component<any>{
         super(props);
     }
 
-    navigate = () => {
-
-    }
-
     render(){
         return(
             <div className={"Navbar"}>            

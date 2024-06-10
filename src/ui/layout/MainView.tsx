@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 
-
 import { contentRoutes } from '@app/constants';
 
 import Home from '@ui/pages/Home';
@@ -14,8 +13,6 @@ class MainView extends React.Component<any> {
     constructor(props: any) {
         super(props);
     }
-
-    
 
     render() {
         return (
