@@ -20,9 +20,26 @@ class BrowserList extends React.Component<IProps, never> {
         const price = event.target.getAttribute('data-price');
         const id = uuidv4();
         const itemToAdd: CartItem = 
-        {name, price, id};
+        {name, price, quantity: 1, id};
+
+        const currentCartItems = this.props.pStore.CartItems;
+        let duplicateItemTracker = -1;
+        
+        currentCartItems.forEach((CartItem: CartItem, index: number) => {
+            if(CartItem.name === name) {
+                CartItem.quantity = CartItem.quantity + 1;
+                duplicateItemTracker = index;
+            }
+        });
+        if(duplicateItemTracker !== -1) {
+            this.props.pStore.addCartItem([...currentCartItems]);
+        }
+        else {
+            this.props.pStore.addCartItem([...currentCartItems, itemToAdd]);
+        }
+
         console.log(this.props.pStore.CartItems);
-        this.props.pStore.addCartItem([...this.props.pStore.CartItems, itemToAdd]);
+        
         
     }
 

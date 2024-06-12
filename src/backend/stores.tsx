@@ -40,6 +40,7 @@ export const userLogin = create<loginUser>()(
 export type CartItem = {
   name: string,
   price: number,
+  quantity: number,
   id: string
   }
   
@@ -54,7 +55,8 @@ export const userCartItems = create<CartItems>()(
     (set): CartItems => ({
       CartItems: [],
       
-      addCartItem: (CartItems: CartItem[]) => set({ CartItems })
+      addCartItem: (CartItems: CartItem[]) => set({ CartItems }),
+      
     }),
     {
       name: "user-cart"
