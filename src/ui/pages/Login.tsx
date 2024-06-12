@@ -2,7 +2,8 @@ import React, { BaseSyntheticEvent } from 'react';
 
 import { contentRoutes } from '@app/constants';
 
-import WithStore, { loginUser, userLogin } from '@app/backend/stores';
+import { loginUser, userLogin } from '@app/backend/stores';
+import WithStore from '@app/backend/stores';
 
 import { router } from '@app/main';
 
@@ -52,5 +53,4 @@ class Login extends React.Component<IProps, never> {
     }
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default WithStore(Login, userLogin);

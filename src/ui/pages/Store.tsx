@@ -1,20 +1,9 @@
-import React from 'react';
 
 import BrowserList from '@ui/components/Browse/BrowserList';
-/*
-class Store extends React.Component<any> {
-    render() {
-        return(
-            <div>
-                <BrowserList />
-            </div>
-        )
-    }
-}*/
 
 export function Store() {
     return(
-        <div>
+        <div className="Browserlist_container">
             <BrowserList />
         </div>
     )

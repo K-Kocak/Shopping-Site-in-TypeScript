@@ -16,7 +16,7 @@ class MainView extends React.Component<any> {
 
     render() {
         return (
-            <div>
+            <div className={"MainView"}>
                 <Routes>
                     <Route path={contentRoutes.HOME} element={<Home />} />
                     <Route path={contentRoutes.LOGIN} element={<Login />} />

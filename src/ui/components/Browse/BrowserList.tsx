@@ -1,7 +1,10 @@
 import React, { BaseSyntheticEvent } from 'react';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import BrowserItemList, { BrowserItem } from '@app/backend/BrowserItem';
-import WithStore, {userCartItems, CartItem, CartItems} from '@app/backend/stores';
+import {userCartItems, CartItem, CartItems} from '@app/backend/stores'
+import WithStore from '@app/backend/stores';
 
 interface IProps {
     pStore: CartItems
@@ -15,8 +18,9 @@ class BrowserList extends React.Component<IProps, never> {
     addToCart = (event: BaseSyntheticEvent) => {
         const name = event.target.getAttribute('data-name');
         const price = event.target.getAttribute('data-price');
+        const id = uuidv4();
         const itemToAdd: CartItem = 
-        {name, price};
+        {name, price, id};
         console.log(this.props.pStore.CartItems);
         this.props.pStore.addCartItem([...this.props.pStore.CartItems, itemToAdd]);
         
@@ -41,5 +45,5 @@ class BrowserList extends React.Component<IProps, never> {
     }
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export default WithStore(BrowserList, userCartItems)

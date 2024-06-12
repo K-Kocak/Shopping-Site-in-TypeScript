@@ -1,37 +1,11 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+
 //, createJSONStorage
 
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 
-// Add item to store
-/*
-export function append<T>(store: StoreApi<T[]>, item: T) {
-  store.setState((state) => [...state, item]);
-}
 
-// Prepend item to store
-
-export function prepend<T>(store: StoreApi<T[]>, item: T) {
-  store.setState((state) => [item, ...state]);
-}
-
-// Get items in store as array
-export function asArray<T>(store: StoreApi<T[]>): T[] {
-  return Object.values(store.getState());
-}
-
-// Remove item from store
-export function remove<T>(store: StoreApi<T[]>, item: T) {
-  store.setState((state) =>{
-    const index = state.indexOf(item);
-    if (index > -1) {
-      state.splice(index, 1);
-    }
-    return [...state];
-  })
-}
-*/
 /*const WithStore = (Component: any, primary: any, secondary?: any, tertiary?: any) => (props: any) => {
   const primaryStore = primary();
   const secondaryStore = secondary ? secondary() : null;
@@ -39,25 +13,6 @@ export function remove<T>(store: StoreApi<T[]>, item: T) {
 
   return <Component {...props} pStore={primaryStore} sStore={secondaryStore} tStore={tertiaryStore} />;
 }*/
-/*
-export interface counterValue {
-  value: number;
-
-  setValue: (value: number) => void;
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useValue = create<counterValue>()(
-  persist(
-    (set): counterValue => ({
-      value: 0,
-      setValue: (value: number) => set({ value })  
-    }),
-    {
-      name: "test-state",
-    }
-  )
-);*/
 
 export interface loginUser {
   username: string;
@@ -67,7 +22,6 @@ export interface loginUser {
   setPassword: (password: string) => void;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const userLogin = create<loginUser>()(
   persist(
     (set): loginUser => ({
@@ -85,15 +39,16 @@ export const userLogin = create<loginUser>()(
 
 export type CartItem = {
   name: string,
-  price: number
-}
+  price: number,
+  id: string
+  }
+  
 
-export type CartItems = {
+export interface CartItems {
   CartItems: CartItem[];
   addCartItem: (CartItems: CartItem[]) => void;
-}
+  }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const userCartItems = create<CartItems>()(
   persist(
     (set): CartItems => ({
@@ -107,7 +62,9 @@ export const userCartItems = create<CartItems>()(
   )
 );
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+
+
 export const WithStore = (Component: any, primary?: any, secondary?: any) => (props: any) => {
   const primaryStore = primary();
   const secondaryStore = secondary ? secondary() : null;

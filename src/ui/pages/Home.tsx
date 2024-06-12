@@ -25,5 +25,5 @@ class Home extends React.Component<IProps, never> {
     }
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export default Home;

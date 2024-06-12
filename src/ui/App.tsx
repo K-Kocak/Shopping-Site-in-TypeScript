@@ -1,12 +1,13 @@
 import React from 'react';
 
-import WithStore, { loginUser, userCartItems, userLogin } from '@backend/stores';
+import { loginUser, userCartItems, userLogin, CartItem } from '@backend/stores';
+import WithStore from '@backend/stores';
 
 import '@css/App.scss';
 
 import MainView from '@ui/layout/MainView';
 import Navbar from '@ui/layout/Navbar';
-import { CartItem } from '@backend/stores';
+
 
 interface IProps {
   pStore: CartItem[],
@@ -22,8 +23,7 @@ class App extends React.Component<IProps, never> {
 
   render() {
     return (
-      <div className={"App"}
-      onContextMenu={(e) => e.preventDefault()}>
+      <div className={"App"}>
         <Navbar />
         <MainView />
       </div>
@@ -33,5 +33,4 @@ class App extends React.Component<IProps, never> {
 
 
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default WithStore(App, userCartItems, userLogin);
