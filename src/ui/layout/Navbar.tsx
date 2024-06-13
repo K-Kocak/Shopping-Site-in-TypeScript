@@ -5,8 +5,8 @@ import '@css/layout/Navbar.scss';
 
 import { contentRoutes } from '@app/constants';
 
-class Navbar extends React.Component<any>{
-    constructor(props: any){
+class Navbar extends React.Component<never>{
+    constructor(props: never){
         super(props);
     }
 

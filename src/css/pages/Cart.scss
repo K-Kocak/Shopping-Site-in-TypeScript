@@ -1,6 +1,34 @@
 .Cartitem {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 15px;
+    background: yellow;
+    position: relative;
+    width: 100%;
+
+    .Cartinfo {
+        background: red;
+        margin: 10px;
+        font-size: 25px;
+        padding: 5px;
+    }
+
+    .Cartinfo.itemname {
+        width: 100px;
+        
+    }
+
+    .Cartinfo.itemprice {
+       // probabaly don't need this
+    }
+
+    .Cartinfo.itemquantity {     
+        padding: 0px;
+        margin: 0px;      
+    }
+    .Cartitem_button {
+        font-size: 20px;
+    }
 }

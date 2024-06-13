@@ -18,9 +18,10 @@ class BrowserList extends React.Component<IProps, never> {
     addToCart = (event: BaseSyntheticEvent) => {
         const name = event.target.getAttribute('data-name');
         const price = event.target.getAttribute('data-price');
+        const description = event.target.getAttribute('data-description');
         const id = uuidv4();
         const itemToAdd: CartItem = 
-        {name, price, quantity: 1, id};
+        {name, price, description, quantity: 1, id};
 
         const currentCartItems = this.props.pStore.CartItems;
         let duplicateItemTracker = -1;
@@ -31,12 +32,12 @@ class BrowserList extends React.Component<IProps, never> {
                 duplicateItemTracker = index;
             }
         });
-        if(duplicateItemTracker !== -1) {
-            this.props.pStore.addCartItem([...currentCartItems]);
-        }
-        else {
-            this.props.pStore.addCartItem([...currentCartItems, itemToAdd]);
-        }
+
+        duplicateItemTracker !== -1 
+        ? 
+        this.props.pStore.addCartItem([...currentCartItems]) 
+        : 
+        this.props.pStore.addCartItem([...currentCartItems, itemToAdd]);
 
         console.log(this.props.pStore.CartItems);
         
@@ -50,7 +51,8 @@ class BrowserList extends React.Component<IProps, never> {
             itemsToDisplay.push(<div key={index}>
                 {Item.name}
                 £{Item.price}
-                <button onClick={this.addToCart} data-name={Item.name} data-price={Item.price}>Add To Cart</button>
+                {Item.description}
+                <button onClick={this.addToCart} data-name={Item.name} data-price={Item.price} data-description={Item.description}>Add To Cart</button>
             </div>);
         });
 

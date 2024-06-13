@@ -40,6 +40,7 @@ export const userLogin = create<loginUser>()(
 export type CartItem = {
   name: string,
   price: number,
+  description: string,
   quantity: number,
   id: string
   }
