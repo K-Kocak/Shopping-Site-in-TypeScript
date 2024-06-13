@@ -1,0 +1,44 @@
+.checkout {
+    width: 100%;
+    display: flex;
+    
+    
+    .Cartarea {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .formsection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        width: 400px;
+        margin-left: -200px;
+        background-color: grey;
+        
+        .forminfo {
+            div {
+                margin: 20px auto;
+                text-align: left;
+            }
+            input {
+                width: 100%;
+                padding: 2px;
+                margin: 2px auto;
+            }
+    
+            button {
+                text-align: center;
+            }
+        }
+        
+    }
+}
+
+
+
+
