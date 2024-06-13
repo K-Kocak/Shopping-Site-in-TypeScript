@@ -27,38 +27,39 @@ class Checkout extends React.Component<IProps, never> {
             totalCost += CartItem.quantity*CartItem.price;
         
             userCart.push(<div className="Cartitem_block" style={{
-                background: 'red',
-                width: '60%',
+                
+                
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'left',
+                justifyContent: 'space-between',
                 margin: 10,
                 padding: 10,
                 fontSize: 25
             }}>
                 <div className="CartItem name" style={{
                    textAlign: 'left',
-                   width: '45%',
+                   
                    marginLeft: 10
                 }}>
                     {CartItem.name}
                 </div>
-                <div className="CartItem price">
-                    £{CartItem.price*CartItem.quantity}
+                <div className="CartItem price" >
+                    <span>£{CartItem.price*CartItem.quantity}</span>
                 </div>
             </div>)
         });
         totalCost = Math.round(totalCost * 100) / 100;
         return(
             <div>
+                
                 <div className="checkout">
                     <div className="Cartarea">
-                        <div className="Cartinfo" style={{
-                            background: 'red',
-                            width: '60%',
+                        <div className="Cartinfo top" style={{
+                  
+                            
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: 'left',
+                            justifyContent: 'space-between',
                             margin: 10,
                             padding: 10,
                             fontSize: 25
@@ -81,12 +82,10 @@ class Checkout extends React.Component<IProps, never> {
                         </div>  
 
 
-                        <div className="Cartinfo" style={{
-                            background: 'red',
-                            width: '60%',
+                        <div className="Cartinfo bottom" style={{                     
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: 'left',
+                            justifyContent: 'space-between',
                             margin: 10,
                             padding: 10,
                             fontSize: 25
