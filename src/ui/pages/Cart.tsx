@@ -71,8 +71,10 @@ class Cart extends React.Component<IProps, never> {
                 <div className="Cartinfo itemname">
                     <p>{CartItem.name}</p>
                 </div>
-                <div className="Cartinfo itemprice">
-                    <p>£{CartItem.price*CartItem.quantity}</p>
+                <div className="Cartinfo itemprice" style={{
+                    width: 100
+                }}>
+                    <p>£{Math.round(CartItem.price*CartItem.quantity * 100) / 100}</p>
                 </div>
                 <div className="Cartinfo itemdescription">
                     <p style={{
@@ -85,13 +87,16 @@ class Cart extends React.Component<IProps, never> {
                         height: 100
                     }}>{CartItem.description}</p>
                 </div>
-                <div  className="Cartinfo itemquantity">
-                    <span><button className="Cartitem_button increase" onClick={this.alterQuantity} value="increase">{'↑'}</button></span>
+                <div  className="Cartinfo itemquantity" style={{
+                    padding: 3
+                }}>
+                    <span><button className="Cartitem_button increase" onClick={this.alterQuantity} value="increase">{'↑'}
+                        </button></span>
                     <p>{CartItem.quantity}</p>
                     <span><button className="Cartitem_button decrease" onClick={this.alterQuantity} value="decrease">{'↓'}</button></span>
                 </div>
                 <div className="Cartinfo removeitem">
-                    <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}>Remove From Cart</button></span>
+                    <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}>Remove</button></span>
                     
                 </div>
             </div>);
@@ -99,12 +104,14 @@ class Cart extends React.Component<IProps, never> {
 
         return(
             <div>
-                <div>
+                <div className="usercartwrap">
                     {userCart}
                 </div>
+                <div className="buttons">
+                    <span><button onClick={this.clearCart}>Empty your cart</button></span>
+                    <span><button onClick={this.checkout}>Proceed to checkout</button></span>
+                </div>
                 
-                <button onClick={this.clearCart}>Empty your cart</button>
-                <span><button onClick={this.checkout}className="Cartitem_button checkout">Proceed to checkout</button></span>
             </div>
         )
     }

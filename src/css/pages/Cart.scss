@@ -3,10 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 15px;
+    margin: 0px;
     background: yellow;
     position: relative;
     width: 100%;
+    border-bottom: 1px solid black;
 
     .Cartinfo {
         background: red;
@@ -31,4 +32,17 @@
     .Cartitem_button {
         font-size: 20px;
     }
+}
+
+.usercartwrap {
+    
+    border: 2px solid black;
+    border-bottom-width: 1px;
+    margin: 0px;
+    padding: 0px;
+    box-shadow: 0px 0px 40px 5px black;
+}
+
+.buttons {
+    margin-top: 50px;
 }

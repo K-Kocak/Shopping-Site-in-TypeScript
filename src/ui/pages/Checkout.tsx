@@ -26,9 +26,7 @@ class Checkout extends React.Component<IProps, never> {
         this.props.pStore.CartItems.map((CartItem: CartItem, index: number) => {
             totalCost += CartItem.quantity*CartItem.price;
         
-            userCart.push(<div className="Cartitem_block" style={{
-                
-                
+            userCart.push(<div key={index} className="Cartitem_block" style={{            
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -44,11 +42,11 @@ class Checkout extends React.Component<IProps, never> {
                     {CartItem.name}
                 </div>
                 <div className="CartItem price" >
-                    <span>£{CartItem.price*CartItem.quantity}</span>
+                    <span>£{Math.round(CartItem.price*CartItem.quantity * 100) / 100}</span>
                 </div>
             </div>)
         });
-        totalCost = Math.round(totalCost * 100) / 100;
+        
         return(
             <div>
                 
@@ -98,7 +96,7 @@ class Checkout extends React.Component<IProps, never> {
                                     Total Cost
                             </div>
                             <div className="Cartinfo">
-                                £{totalCost}
+                                £{Math.round(totalCost * 100) / 100}
                             </div>
                         </div>
                     </div>
