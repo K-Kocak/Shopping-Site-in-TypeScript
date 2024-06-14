@@ -3,28 +3,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0px;
-    background: yellow;
+    margin: 0px;  
     position: relative;
     width: 100%;
     border-bottom: 1px solid black;
-
-    .Cartinfo {
-        background: red;
+    .Cartinfo {     
         margin: 10px;
         font-size: 25px;
         padding: 5px;
     }
-
     .Cartinfo.itemname {
         width: 100px;
         
     }
-
-    .Cartinfo.itemprice {
-       // probabaly don't need this
-    }
-
     .Cartinfo.itemquantity {     
         padding: 0px;
         margin: 0px;      
@@ -34,8 +25,7 @@
     }
 }
 
-.usercartwrap {
-    
+.usercartwrap {  
     border: 2px solid black;
     border-bottom-width: 1px;
     margin: 0px;
@@ -44,5 +34,19 @@
 }
 
 .buttons {
-    margin-top: 50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+
+    button {
+        margin: 30px;
+        font-size: 25px;
+        font-weight: 700;
+        border: 2px solid black;
+        background: #C8F2F8;
+        &:hover {
+            background: #EBFAFC;
+        }
+    }
 }

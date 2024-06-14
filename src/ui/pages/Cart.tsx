@@ -96,7 +96,7 @@ class Cart extends React.Component<IProps, never> {
                     <span><button className="Cartitem_button decrease" onClick={this.alterQuantity} value="decrease">{'↓'}</button></span>
                 </div>
                 <div className="Cartinfo removeitem">
-                    <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}>Remove</button></span>
+                    <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}><i className="fa fa-trash" aria-hidden="true"></i></button></span>
                     
                 </div>
             </div>);
@@ -104,6 +104,12 @@ class Cart extends React.Component<IProps, never> {
 
         return(
             <div>
+                <div>
+                    <h3 style={{
+                        fontSize: 35,
+                        margin: 45
+                    }}>Your Cart</h3>
+                </div>
                 <div className="usercartwrap">
                     {userCart}
                 </div>

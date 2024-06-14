@@ -7,6 +7,8 @@ import WithStore from '@app/backend/stores';
 
 import { router } from '@app/main';
 
+import '@css/pages/Login.scss'
+
 interface IProps {
     pStore: loginUser
 }
@@ -32,20 +34,22 @@ class Login extends React.Component<IProps, never> {
 
     render() {
         return(
-            <div>
-                <div>
+            <div className="logincontainer">
+                <div className="loginformsection">
                     <form onSubmit={this.submitForm}>
-                        <div>
+                        <div className="inputfield">
                             <span>Username: </span>
                             <input type="text" placeholder='Enter your username...'>
                             </input>
                         </div>
-                        <div>
+                        <div className="inputfield">
                         <span>Password: </span>
                             <input type="password" placeholder='Enter your username...'>
                             </input>
-                        </div>                   
-                        <button type="submit">Login</button>
+                        </div>   
+                        <div className="submitbutton">
+                            <button type="submit">Login</button>
+                        </div>                                     
                     </form>
                 </div>            
             </div>

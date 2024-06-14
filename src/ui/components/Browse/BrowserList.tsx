@@ -6,6 +6,8 @@ import BrowserItemList, { BrowserItem } from '@app/backend/BrowserItem';
 import {userCartItems, CartItem, CartItems} from '@app/backend/stores'
 import WithStore from '@app/backend/stores';
 
+import '@css/components/BrowserList.scss'
+
 interface IProps {
     pStore: CartItems
 }
@@ -48,16 +50,29 @@ class BrowserList extends React.Component<IProps, never> {
 
         const itemsToDisplay: JSX.Element[] = [];
         BrowserItemList.map((Item: BrowserItem, index: number) => {
-            itemsToDisplay.push(<div key={index}>
-                {Item.name}
-                £{Item.price}
-                {Item.description}
-                <button onClick={this.addToCart} data-name={Item.name} data-price={Item.price} data-description={Item.description}>Add To Cart</button>
+            itemsToDisplay.push(<div className="browseritem" key={index}>
+                <div className="itemdiv">
+                    <div className="item name">
+                        <span>{Item.name}</span>
+                    </div>
+                </div>
+                <div className="itemdiv">
+                    <div className="item price">
+                    <span>£{Item.price}</span>
+                    </div>
+                    <div className="item description">
+                        <span>{Item.description}</span>
+                    </div>
+                    <div className="item addtocart">
+                        <button onClick={this.addToCart} data-name={Item.name} data-price={Item.price} data-description={Item.description}>Add To Cart</button>
+                    </div> 
+                </div>
+                           
             </div>);
         });
 
         return (
-            <div>
+            <div className="browsercontainer">
                 {itemsToDisplay}
             </div>
         )

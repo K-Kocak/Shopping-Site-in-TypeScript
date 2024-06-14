@@ -6,17 +6,17 @@ export interface BrowserItem {
 
 export const BrowserItemList: BrowserItem[] = [
     {
-        name: "Shoes",
+        name: "Pristine Shoes",
         price: 23.99,
         description: "A pair of shoes."
     },
     {
-        name: "Shirt",
+        name: "High Quality Shirt",
         price: 5.99,
         description: "A shirt."
     },
     {
-        name: "Trousers",
+        name: "Long Trousers",
         price: 15.99,
         description: "Trousers."
     },

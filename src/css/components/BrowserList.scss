@@ -1,0 +1,51 @@
+.browsercontainer {
+    display: flex;    
+    flex-wrap: wrap;
+    
+    
+    .browseritem {
+        width: 48.3%;
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #FEFFF9;
+        border: 2px solid black;
+        margin: 5px;
+        box-shadow: 0px 0px 20px 4px black;
+        
+        .itemdiv {
+            font-size: 25px;
+            margin: auto 25px;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            
+            .item {
+                margin: 30px auto;
+                
+            }
+    
+            .item.name {
+    
+            }
+    
+            .item.price {
+    
+            }
+    
+            .item.description {
+                font-size: 18px;
+            }
+    
+            .item.addtocart {
+    
+                button {
+                    width: 120px;
+                }
+            }
+        }
+        
+    }
+}
