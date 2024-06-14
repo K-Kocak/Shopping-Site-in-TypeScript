@@ -3,8 +3,11 @@
     justify-content: center;
     align-items: center;
     background: #F5F4FE;
-    position: absolute;
+    position: fixed;
     left: 0px;
+    top: 90vh;
+    padding: 0px;
+    margin: 0px;
     width: 100vw;
     z-index: 10;
     height: 100px;

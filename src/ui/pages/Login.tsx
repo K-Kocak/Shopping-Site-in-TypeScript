@@ -39,12 +39,12 @@ class Login extends React.Component<IProps, never> {
                     <form onSubmit={this.submitForm}>
                         <div className="inputfield">
                             <span>Username: </span>
-                            <input type="text" placeholder='Enter your username...'>
+                            <input type="text" required placeholder='Enter your username...'>
                             </input>
                         </div>
                         <div className="inputfield">
                         <span>Password: </span>
-                            <input type="password" placeholder='Enter your username...'>
+                            <input type="password" required placeholder='Enter your username...'>
                             </input>
                         </div>   
                         <div className="submitbutton">

@@ -5,7 +5,7 @@ import '@css/layout/Navbar.scss';
 
 import { contentRoutes } from '@app/constants';
 
-import WithStore, { userLogin, loginUser, userCartItems, CartItems, CartItem } from '@app/backend/stores';
+import WithStore, { userLogin, loginUser, userCartItems, CartItems } from '@app/backend/stores';
 import { router } from '@app/main';
 
 interface IProps {
@@ -34,7 +34,7 @@ class Navbar extends React.Component<IProps, any>{
         return(
             <div className={"Navbar"}>            
                 <Link to={contentRoutes.HOME} style={{textDecoration: "none"}}>
-                    <div className={"NavDiv"}>
+                    <div className={"NavDiv home"}>
                         <p>Home</p>
                     </div>
                 </Link>
@@ -49,7 +49,7 @@ class Navbar extends React.Component<IProps, any>{
                     </div>
                 
                 
-                    <div onClick={this.tryCartRoute} className={"NavDiv"}>
+                    <div onClick={this.tryCartRoute} className={"NavDiv cart"}>
                         <p>Cart</p>
                     </div>  
             </div>

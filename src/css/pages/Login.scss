@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     border: 3px solid black;
-    border-radius: 300px;
+    border-radius: 60px;
     background: #F9FDD7;
     margin-top: 150px;
     width: 50%;
@@ -13,7 +13,7 @@
         display: flex;
         flex-direction: column;
         .inputfield {
-            width: 270px;
+            width: 266px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -44,5 +44,5 @@
 .logincontainer {
     display: flex;
     justify-content: center;
-    margin-bottom: 271px;
+    
 }

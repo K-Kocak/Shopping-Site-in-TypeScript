@@ -1,4 +1,8 @@
+import { contentRoutes } from '@app/constants';
+import { router } from '@app/main';
 import React from 'react';
+
+import '@css/pages/Home.scss';
 
 interface IProps {
     
@@ -9,17 +13,27 @@ class Home extends React.Component<IProps, never> {
         super(props);
     }
 
+    goToLogin = () => {
+        router.navigate(contentRoutes.LOGIN);
+    }
+
     render() {
         
         return(
-            <div>
-                <h3>
+            <div className="homepage">
+                <h2>
                     Welcome to a simple shopping site!
-                </h3>
-                <p>Please login to browse</p>
-                <p>A few items and prices</p>
-                
-                <p>User will click Login</p>             
+                </h2>
+                <p>Please login to browse the site.</p>
+                <button className="homepagelogin" style={{
+                    border: "1px solid black",
+                    background: "#EBFAFC",
+                    fontSize: 23,
+                    padding: "3px 10px",
+                    borderRadius: 10,
+                    marginTop: 20,
+                    
+                }} onClick={this.goToLogin}>Login Here</button>           
             </div>
         )
     }

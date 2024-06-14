@@ -1,13 +1,31 @@
 .Navbar {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;    
+    justify-content: space-evenly;
+    
+    background: #252827;
+    margin-bottom: 50px;
+   
     .NavDiv {
         font-size: 30px;
-        color: blue;
+        color: white;
+        
+        display: flex;
+        width: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+        
+        
+        
+        justify-content:space-evenly;
+        align-items: center;
+        
 
         &:hover {
             cursor: pointer;
+            //background: #252827;
+            background: #0F100F;
         }
     }
+
+    
 }

@@ -54,4 +54,11 @@
 .Cartitem_button.delete {
     border: 1px solid black;
     background: #EBFAFC;
+
+    &:hover {
+        background: #C5F1F6;
+    }
+    &:active {
+        font-size: 19px;
+    }
 }
