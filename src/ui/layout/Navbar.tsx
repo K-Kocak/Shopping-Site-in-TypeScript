@@ -5,9 +5,29 @@ import '@css/layout/Navbar.scss';
 
 import { contentRoutes } from '@app/constants';
 
-class Navbar extends React.Component<never>{
-    constructor(props: never){
+import WithStore, { userLogin, loginUser, userCartItems, CartItems, CartItem } from '@app/backend/stores';
+import { router } from '@app/main';
+
+interface IProps {
+    pStore: loginUser,
+    sStore: CartItems
+}
+
+class Navbar extends React.Component<IProps, any>{
+    constructor(props: IProps){
         super(props);
+    }
+
+    tryBrowseRoute = () => {
+        if(this.props.pStore.username !== "") {
+            router.navigate(contentRoutes.BROWSE);
+        }
+    }
+
+    tryCartRoute = () => {
+        if(this.props.sStore.CartItems.length !== 0) {
+            router.navigate(contentRoutes.CART);
+        }
     }
 
     render(){
@@ -23,24 +43,18 @@ class Navbar extends React.Component<never>{
                         <p>Login</p>
                     </div>
                 </Link>
-                <Link to={contentRoutes.BROWSE} style={{textDecoration: "none"}}>
-                    <div className={"NavDiv"}>
+                
+                    <div onClick={this.tryBrowseRoute} className={"NavDiv"}>
                         <p>Browse</p>
                     </div>
-                </Link>
-                <Link to={contentRoutes.CART} style={{textDecoration: "none"}}>
-                    <div className={"NavDiv"}>
+                
+                
+                    <div onClick={this.tryCartRoute} className={"NavDiv"}>
                         <p>Cart</p>
-                    </div>
-                </Link>
-                <Link to={contentRoutes.CHECKOUT} style={{textDecoration: "none"}}>
-                    <div className={"NavDiv"}>
-                        <p>Checkout</p>
-                    </div>
-                </Link>
+                    </div>  
             </div>
         )
     }
 }
 
-export default Navbar;
+export default WithStore(Navbar, userLogin, userCartItems);

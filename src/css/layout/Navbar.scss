@@ -5,5 +5,9 @@
     .NavDiv {
         font-size: 30px;
         color: blue;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

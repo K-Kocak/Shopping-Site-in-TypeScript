@@ -7,6 +7,7 @@ import '@css/App.scss';
 
 import MainView from '@ui/layout/MainView';
 import Navbar from '@ui/layout/Navbar';
+import Footer from '@ui/layout/Footer';
 
 
 interface IProps {
@@ -26,6 +27,7 @@ class App extends React.Component<IProps, never> {
       <div className={"App"}>
         <Navbar />
         <MainView />
+        <Footer />
       </div>
     )
   }

@@ -64,7 +64,7 @@ class BrowserList extends React.Component<IProps, never> {
                         <span>{Item.description}</span>
                     </div>
                     <div className="item addtocart">
-                        <button onClick={this.addToCart} data-name={Item.name} data-price={Item.price} data-description={Item.description}>Add To Cart</button>
+                        <button className="Cartitem_button" onClick={this.addToCart} data-name={Item.name} data-price={Item.price} data-description={Item.description}>Add To Cart</button>
                     </div> 
                 </div>
                            

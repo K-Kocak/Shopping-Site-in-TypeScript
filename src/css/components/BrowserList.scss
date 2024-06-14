@@ -23,18 +23,9 @@
             width: 50%;
             
             .item {
-                margin: 30px auto;
-                
+                margin: 30px auto;            
             }
-    
-            .item.name {
-    
-            }
-    
-            .item.price {
-    
-            }
-    
+
             .item.description {
                 font-size: 18px;
             }
@@ -45,7 +36,12 @@
                     width: 120px;
                 }
             }
-        }
-        
+        }       
     }
+}
+
+.Cartitem_button {  
+    border: 1px solid black;
+    background: #EBFAFC;
+    
 }

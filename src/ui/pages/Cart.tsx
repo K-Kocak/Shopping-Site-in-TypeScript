@@ -35,7 +35,10 @@ class Cart extends React.Component<IProps, never> {
     }
 
     checkout = () => {
-        router.navigate(contentRoutes.CHECKOUT);
+        if(this.props.pStore.CartItems.length > 0) {
+            router.navigate(contentRoutes.CHECKOUT);
+        }
+        
     }
 
     alterQuantity = (event: BaseSyntheticEvent) => {
@@ -66,41 +69,53 @@ class Cart extends React.Component<IProps, never> {
     render() {
         console.log(this.props.pStore.CartItems);
         const userCart: JSX.Element[] = [];
-        this.props.pStore.CartItems.map((CartItem: CartItem, index: number) => {
-            userCart.push(<div data-id={CartItem.id} className="Cartitem" key={index}>
-                <div className="Cartinfo itemname">
-                    <p>{CartItem.name}</p>
-                </div>
-                <div className="Cartinfo itemprice" style={{
-                    width: 100
+        if(this.props.pStore.CartItems.length < 1) {
+            userCart.push(<div className="Cartitem" style={{
+                display: 'flex',
+                justifyContent: 'center'
+            }}>
+                <div className="Cartinfo itemname" style={{
+                    width: '100%'
                 }}>
-                    <p>£{Math.round(CartItem.price*CartItem.quantity * 100) / 100}</p>
-                </div>
-                <div className="Cartinfo itemdescription">
-                    <p style={{
-                        fontSize: 16,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        textAlign: 'center',
-                        width: 150,
-                        height: 100
-                    }}>{CartItem.description}</p>
-                </div>
-                <div  className="Cartinfo itemquantity" style={{
-                    padding: 3
-                }}>
-                    <span><button className="Cartitem_button increase" onClick={this.alterQuantity} value="increase">{'↑'}
-                        </button></span>
-                    <p>{CartItem.quantity}</p>
-                    <span><button className="Cartitem_button decrease" onClick={this.alterQuantity} value="decrease">{'↓'}</button></span>
-                </div>
-                <div className="Cartinfo removeitem">
-                    <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}><i className="fa fa-trash" aria-hidden="true"></i></button></span>
-                    
-                </div>
-            </div>);
-        })
+                    <p>Your cart is empty.</p>
+                </div> 
+            </div>)
+        }
+        else {
+            this.props.pStore.CartItems.map((CartItem: CartItem, index: number) => {
+                userCart.push(<div data-id={CartItem.id} className="Cartitem" key={index}>
+                    <div className="Cartinfo itemname">
+                        <p>{CartItem.name}</p>
+                    </div>
+                    <div className="Cartinfo itemprice" style={{
+                        width: 100
+                    }}>
+                        <p>£{Math.round(CartItem.price*CartItem.quantity * 100) / 100}</p>
+                    </div>
+                    <div className="Cartinfo itemdescription">
+                        <p style={{
+                            fontSize: 16,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            textAlign: 'center',
+                            width: 150,
+                            height: 100
+                        }}>{CartItem.description}</p>
+                    </div>
+                    <div  className="Cartinfo itemquantity" style={{
+                        padding: 3
+                    }}>
+                        <span><button className="Cartitem_button increase" onClick={this.alterQuantity} value="increase">{'↑'}
+                            </button></span>
+                        <p>{CartItem.quantity}</p>
+                        <span><button className="Cartitem_button decrease" onClick={this.alterQuantity} value="decrease">{'↓'}</button></span>
+                    </div>
+                    <div className="Cartinfo removeitem">
+                        <span><button className="Cartitem_button delete" onClick={this.removeFromCartID}>Remove</button></span>      
+                    </div>
+                </div>)});
+        }
 
         return(
             <div>

@@ -29,7 +29,7 @@ class Checkout extends React.Component<IProps, never> {
             userCart.push(<div key={index} className="Cartitem_block" style={{            
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between',
+                justifyContent: 'space-between',            
                 margin: 10,
                 padding: 10,
                 fontSize: 25
